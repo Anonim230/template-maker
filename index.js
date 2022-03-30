@@ -43,10 +43,10 @@ var commandList = {
         writeFileSync(join(__dirname, ...args, 'lib', 'jwt.js'), configsToFiles.graphql.lib.jwt)
         writeFileSync(join(__dirname, ...args, 'lib', 'postgres.js'), configsToFiles.graphql.lib.postgres)
         mkdirSync(join(__dirname, ...args, 'model'))
-        writeFileSync(join(__dirname, ...args, 'model', 'model.sql'), configsToFiles.graphql.model.model.replace('REPLACE_TEXT', REPLACE_TEXT))
+        writeFileSync(join(__dirname, ...args, 'model', 'model.sql'), configsToFiles.graphql.model.model.replaceAll('REPLACE_TEXT', REPLACE_TEXT))
         mkdirSync(join(__dirname, ...args, 'modules'))
         mkdirSync(join(__dirname, ...args, 'modules', REPLACE_TEXT))
-        writeFileSync(join(__dirname, ...args, 'modules', REPLACE_TEXT, 'index.js'), configsToFiles.graphql.modules.index)
+        writeFileSync(join(__dirname, ...args, 'modules', REPLACE_TEXT, 'index.js'), configsToFiles.graphql.modules.index.replaceAll('REPLACE_TEXT', REPLACE_TEXT))
 
     },
     read: args => console.log(readFileSync(args[0], 'utf8')),
